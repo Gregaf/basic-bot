@@ -21,6 +21,7 @@ jobs:
       uses: ErenKrt/ssh-push@main
       with:
         host: ${{ secrets.HOST }}
+        port: 5050
         username: ${{ secrets.USERNAME }}
         private_key: ${{ secrets.PRIVATE_KEY }}
         source: "dist/"
