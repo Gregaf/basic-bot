@@ -1,24 +1,8 @@
-import {
-    Client,
-    EmbedBuilder,
-    Events,
-    GatewayIntentBits,
-    REST,
-} from 'discord.js';
+import { Client, Events, GatewayIntentBits } from 'discord.js';
 import * as dotenv from 'dotenv';
 import ready from './listeners/ready';
-import { PING_COMMAND_NAME } from './commands/ping';
 import logger from './tools/logger';
-import {
-    KOTAKU_SCRAPE_COMMAND_NAME,
-    scrapeKotaku,
-} from './commands/kotaku-scrape';
-import axios from 'axios';
-// import jsdom from 'jsdom';
-// const { JSDOM } = jsdom;
-import { JSDOM } from 'jsdom';
 import { loadSecrets } from './init';
-import { cli } from 'winston/lib/winston/config';
 import setupChatCommandEvents from './listeners/interaction-create';
 dotenv.config();
 

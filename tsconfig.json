@@ -14,17 +14,12 @@
         "resolveJsonModule": true,
         "forceConsistentCasingInFileNames": true,
         "removeComments": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ],
         "sourceMap": false,
-        "baseUrl": "./"
+        "baseUrl": "./",
+        "types": []
     },
-    "files": [
-        "src/bot.ts"
-    ],
     "include": [
-        "./**/*.ts"
+        "src/**/*",
     ],
     "exclude": [
         "node_modules",
