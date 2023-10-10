@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:slim AS build
 
 WORKDIR /usr/src/app
 
@@ -10,6 +10,18 @@ COPY . .
 
 RUN yarn run build
 
+FROM node:slim
+
+RUN groupadd -r app \
+    && useradd -r -g app app
+
+RUN mkdir -p /usr/src/app/dist/logs && chown -R app:app /usr/src/app/dist/logs
+
 WORKDIR /usr/src/app/dist
 
-CMD [ "node", "bot.js"]
+COPY --from=build --chown=app:app /usr/src/app/node_modules ./node_modules
+COPY --from=build --chown=app:app /usr/src/app/dist ./dist
+
+USER app
+
+CMD [ "node", "dist/bot.js"]

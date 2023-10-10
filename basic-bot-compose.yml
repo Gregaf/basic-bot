@@ -1,0 +1,9 @@
+---
+version: '3'
+services:
+  basic-bot:
+    image: docker.io/gregaf300/basic-discord-bot:1.0.1
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./.env:/usr/src/app/dist/.env
